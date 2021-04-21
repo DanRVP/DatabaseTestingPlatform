@@ -1,0 +1,41 @@
+//user creation
+db.createUser({
+	user: "Creator",
+	pwd: "Password",
+	roles:["readWrite", "dbAdmin"]
+});
+
+//collection creation
+db.createCollection('products');
+db.createCollection('categories');
+db.createCollection('locations');
+db.createCollection('orders');
+db.createCollection('employees');
+db.createCollection('reviews');
+db.createCollection('customers');
+
+//customer creation
+db.customers.insert({fName:"Console", sName:"test", joinDate: new Date("2021-04-03"), email:"test@test.com", pNumber:"01234567890", addresses:[{fLine:"test", sLine:"test", city:"test", postcode:"test"}, {fLine:"test1", sLine:"test1", city:"test1", postcode:"test1"}, {fLine:"test2", sLine:"test2", city:"test2", postcode:"test2"}], reviews:[{review_id: ObjectId('60685e0885c015315ec8c3e2')}, {review_id: ObjectId('606c38b96765b0c7d237fe0e')}]});
+
+//location creation
+db.locations.insert({name:"test"});
+
+//review creation
+db.reviews.insert({body:"test2", starRating:5, publishdate: new Date("2021-04-03")});
+
+//employee creation
+db.employees.insert({fName:"test", sName:"test", joinDate: new Date("2021-04-03"), email:"test@test.com", pNumber:"01234567890", roles:[{name:"test", description:"test"}, {name:"test1", description:"test1"}], location_id: ObjectId('60685d2085c015315ec8c3e0')});
+
+//order creation
+db.orders.insert({orderDate: new Date("2021-04-03"), paymentCheck: false, dispatchCheck: false, deliveryCheck: false, deliveryDate: null, customer_id: ObjectId('606863b585c015315ec8c3e4'), product_id: ObjectId('606866d985c015315ec8c3e5'), location_id: ObjectId('60685d2085c015315ec8c3e0')});
+
+//category creation
+db.categories.insert({categoryName:"test", categoryDescription: "test", products:[{product_id: ObjectId('606866d985c015315ec8c3e5')}, {product_id: ObjectId('606866e485c015315ec8c3e6')}]});
+
+//product creation
+db.products.insert({name:"test1", price: 69, description:"test1"});
+
+//Update function
+db.customers.updateOne({"_id" : ObjectId('606f3281e1350000f50046d4'}, {$set: {"fName":"Test"}})
+
+
