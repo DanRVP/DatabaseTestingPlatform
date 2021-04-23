@@ -12,10 +12,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class APIFunction {
-    URL url;
-    Map<Object, Object> data;
-    JSONObject json;
-    String inline = "";
+    protected URL url;
+    protected Map<Object, Object> data;
+    protected JSONObject json;
+    protected String inline = "";
 
     private HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
     //This method is depreciated
@@ -90,19 +90,19 @@ public class APIFunction {
         HttpResponse<String> res = client.send(r, HttpResponse.BodyHandlers.ofString());
     }
 
-    public URL getUrl() {
+    protected URL getUrl() {
         return url;
     }
 
-    public void setUrl(URL url) {
+    protected void setUrl(URL url) {
         this.url = url;
     }
 
-    public String getInline() {
+    protected String getInline() {
         return inline;
     }
 
-    public void setInline(String inline) {
+    protected void setInline(String inline) {
         this.inline = inline;
     }
 }
